@@ -31,8 +31,6 @@ public class SearchTest {
 	public void testSort0() {
 		Doctor[] result = searcher.search(doctors[0], doctors);
 		
-		System.out.println(result[0].getId());
-		
 		assertEquals("First result", 2, result[0].getId());
 		assertEquals("Second result", 1, result[1].getId());
 	}

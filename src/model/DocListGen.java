@@ -40,18 +40,15 @@ public class DocListGen {
 	public boolean equalLists(Doctor[] doc1, Doctor[] doc2) {
 		boolean result = true;
 		
-		if (doc1.length != doc2.length) {
+		if (doc1.length != doc2.length)
 			result = false;
-		}
 		
-		for (int i = 0; i < doc1.length && result; i++) {
+		for (int i = 0; i < doc1.length && result; i++)
 			if (doc1[i].getId() != doc2[i].getId()
 					|| doc1[i].getSpecialty() != doc2[i].getSpecialty()
 					|| doc1[i].getArea() != doc2[i].getArea()
-					|| doc1[i].getScore() != doc2[i].getScore()) {
+					|| doc1[i].getScore() != doc2[i].getScore())
 				result = false;
-			}
-		}
 		
 		return result;
 	}

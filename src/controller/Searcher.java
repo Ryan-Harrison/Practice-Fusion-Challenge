@@ -24,33 +24,24 @@ public class Searcher {
 		
 		for (int i = 0; i < doctors.length; i++) {
 			Doctor compare = doctors[i];
-			/*System.out.println(doc.getId() != compare.getId() 
-					&& doc.getSpecialty().equals(compare.getSpecialty()) 
-					&& doc.getArea().equals(compare.getArea())
-					&& (doc.getScore() >= compare.getScore()-20 && doc.getScore() <= compare.getScore()+20));*/
+			
 			if (doc.getId() != compare.getId() 
 					&& doc.getSpecialty().equals(compare.getSpecialty()) 
 					&& doc.getArea().equals(compare.getArea())
 					&& (doc.getScore() >= compare.getScore()-20 && doc.getScore() <= compare.getScore()+20)) {
 				pDocs[j] = new PrioritizedDoctor(compare, compare.getScore() - doc.getScore());
 				j++;
-//				System.out.println(compare.getId());
 			}
 		}
 		
 		int notNull = 0;
-		for (int i = 0; i < pDocs.length; i++) {
-			if (pDocs[i] != null) {
+		for (int i = 0; i < pDocs.length; i++)
+			if (pDocs[i] != null)
 				notNull++;
-			}
-		}
-		
-//		System.out.println(notNull);
 		
 		PrioritizedDoctor[] nPDocs = new PrioritizedDoctor[notNull];
-		for (int i = 0; i < nPDocs.length; i++) {
+		for (int i = 0; i < nPDocs.length; i++)
 			nPDocs[i] = pDocs[i];
-		}
 		
 		return sort(nPDocs);
 	}
@@ -61,11 +52,9 @@ public class Searcher {
 		for (int i = 0; i < pDocs.length-1; i++) {
 			int max = i;
 			
-			for (int j = i+1; j < pDocs.length; j++) {
-				if (pDocs[j].getPriority() > pDocs[max].getPriority()) {
+			for (int j = i+1; j < pDocs.length; j++)
+				if (pDocs[j].getPriority() > pDocs[max].getPriority())
 					max = j;
-				}
-			}
 			
 			PrioritizedDoctor temp = pDocs[i];
 			pDocs[i] = pDocs[max];
